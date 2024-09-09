@@ -1,12 +1,17 @@
 package my.demo.console.actionhandlers;
 
 import my.demo.Person;
-import my.demo.repositories.PersonInMemoryRepository;
+import my.demo.repositories.PersonRepository;
 
 import java.util.Scanner;
 
 public class AddPersonHandler {
-    private final PersonInMemoryRepository personRepository = new PersonInMemoryRepository();
+    private final PersonRepository personRepository;
+
+    public AddPersonHandler(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
+
     public void addPerson(Scanner scanner) {
         System.out.print("Enter first name: ");
         String firstName = scanner.nextLine();

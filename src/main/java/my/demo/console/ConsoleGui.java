@@ -8,10 +8,17 @@ import my.demo.console.actionhandlers.ShowPersonByEmailHandler;
 import java.util.Scanner;
 
 public class ConsoleGui {
-    private final ShowAllPersonHandler showAllPersonHandler = new ShowAllPersonHandler();
-    private final ShowPersonByEmailHandler showPersonByEmailHandler = new ShowPersonByEmailHandler();
-    private final AddPersonHandler addPersonHandler = new AddPersonHandler();
-    private final LoadDataHandler loadDataHandler = new LoadDataHandler();
+    private final ShowAllPersonHandler showAllPersonHandler;
+    private final ShowPersonByEmailHandler showPersonByEmailHandler;
+    private final AddPersonHandler addPersonHandler;
+    private final LoadDataHandler loadDataHandler;
+
+    public ConsoleGui(ShowAllPersonHandler showAllPersonHandler, ShowPersonByEmailHandler showPersonByEmailHandler, AddPersonHandler addPersonHandler, LoadDataHandler loadDataHandler) {
+        this.showAllPersonHandler = showAllPersonHandler;
+        this.showPersonByEmailHandler = showPersonByEmailHandler;
+        this.addPersonHandler = addPersonHandler;
+        this.loadDataHandler = loadDataHandler;
+    }
 
     public void startApp() {
         Scanner scanner = new Scanner(System.in);

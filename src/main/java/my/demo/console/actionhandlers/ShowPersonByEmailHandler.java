@@ -1,12 +1,16 @@
 package my.demo.console.actionhandlers;
 
 import my.demo.Person;
-import my.demo.repositories.PersonInMemoryRepository;
+import my.demo.repositories.PersonRepository;
 
 import java.util.Scanner;
 
 public class ShowPersonByEmailHandler {
-    private final PersonInMemoryRepository personRepository = new PersonInMemoryRepository();
+    private final PersonRepository personRepository;
+
+    public ShowPersonByEmailHandler(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
 
     public void showPersonByEmail(Scanner scanner) {
         System.out.print("Enter email address: ");

@@ -5,15 +5,18 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonFileRepository {
+public class PersonFileRepository implements PersonRepository {
     private static final String FILE_NAME = "persons.csv";
     String fileName;
 
-    public PersonFileRepository() {
+    private static final PersonFileRepository INSTANCE = new PersonFileRepository();
+    public static PersonFileRepository getInstance() {return INSTANCE;}
+
+    private PersonFileRepository() {
         this.fileName = FILE_NAME;
     }
 
-    public PersonFileRepository(String fileName) {
+    private PersonFileRepository(String fileName) {
         this.fileName = fileName;
     }
 

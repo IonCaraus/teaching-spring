@@ -5,8 +5,14 @@ import my.demo.Person;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonInMemoryRepository {
+public class PersonInMemoryRepository implements PersonRepository {
+    private static final PersonInMemoryRepository INSTANCE = new PersonInMemoryRepository();
+    private PersonInMemoryRepository() {}
     private List<Person> persons = new ArrayList<>();
+
+    public static PersonInMemoryRepository getInstance() {
+        return INSTANCE;
+    }
 
     public Person getByEmail( String email) {
         return getAll().stream()

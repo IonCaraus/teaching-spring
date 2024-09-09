@@ -1,12 +1,16 @@
 package my.demo.console.actionhandlers;
 
 import my.demo.Person;
-import my.demo.repositories.PersonInMemoryRepository;
+import my.demo.repositories.PersonRepository;
 
 import java.util.UUID;
 
 public class LoadDataHandler {
-    private final PersonInMemoryRepository personRepository = new PersonInMemoryRepository();
+    private final  PersonRepository  personRepository;
+
+    public LoadDataHandler(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
 
     public void loadSomeData() {
         personRepository.add(new Person("John", "Doe", UUID.randomUUID().toString(), "john.doe@example.com"));
