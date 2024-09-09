@@ -6,6 +6,9 @@ public class Person {
     private String personNumber;
     private String emailAddress;
 
+    public Person() {
+    }
+
     public Person(String firstName, String lastName, String personNumber, String emailAddress) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,6 +30,22 @@ public class Person {
 
     public String getEmailAddress() {
         return emailAddress;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setPersonNumber(String personNumber) {
+        this.personNumber = personNumber;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     @Override
