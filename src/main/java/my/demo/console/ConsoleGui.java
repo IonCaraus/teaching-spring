@@ -4,11 +4,9 @@ import my.demo.console.actionhandlers.AddPersonHandler;
 import my.demo.console.actionhandlers.LoadDataHandler;
 import my.demo.console.actionhandlers.ShowAllPersonHandler;
 import my.demo.console.actionhandlers.ShowPersonByEmailHandler;
-import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
-@Component
 public class ConsoleGui {
     private final ShowAllPersonHandler showAllPersonHandler;
     private final ShowPersonByEmailHandler showPersonByEmailHandler;

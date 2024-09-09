@@ -1,25 +1,21 @@
 package my.demo.repositories;
+
 import my.demo.Person;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
 public class PersonFileRepository implements PersonRepository {
     private static final String FILE_NAME = "persons.csv";
     String fileName;
 
-    private static final PersonFileRepository INSTANCE = new PersonFileRepository();
-    public static PersonFileRepository getInstance() {return INSTANCE;}
-
-    private PersonFileRepository() {
+    public PersonFileRepository() {
         this.fileName = FILE_NAME;
+        System.out.println("File repository created");
     }
 
-    private PersonFileRepository(String fileName) {
+    public PersonFileRepository(String fileName) {
         this.fileName = fileName;
     }
 

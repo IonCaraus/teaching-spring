@@ -1,23 +1,15 @@
 package my.demo.repositories;
 
 import my.demo.Person;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
-//@Primary
-@Qualifier("personRepository")
-@Component
 public class PersonInMemoryRepository implements PersonRepository {
-    private static final PersonInMemoryRepository INSTANCE = new PersonInMemoryRepository();
-    private PersonInMemoryRepository() {}
     private List<Person> persons = new ArrayList<>();
 
-    public static PersonInMemoryRepository getInstance() {
-        return INSTANCE;
+    public PersonInMemoryRepository() {
+        System.out.println("In memory Repository");
     }
 
     public Person getByEmail( String email) {

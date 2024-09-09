@@ -2,16 +2,13 @@ package my.demo.console.actionhandlers;
 
 import my.demo.Person;
 import my.demo.repositories.PersonRepository;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
-@Component
 public class LoadDataHandler {
     private final  PersonRepository  personRepository;
 
-    public LoadDataHandler(@Qualifier("personRepository") PersonRepository personRepository) {
+    public LoadDataHandler(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
 

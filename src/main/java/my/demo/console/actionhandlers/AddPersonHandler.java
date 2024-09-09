@@ -2,16 +2,13 @@ package my.demo.console.actionhandlers;
 
 import my.demo.Person;
 import my.demo.repositories.PersonRepository;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
-@Component
 public class AddPersonHandler {
     private final PersonRepository personRepository;
 
-    public AddPersonHandler(@Qualifier("personRepository") PersonRepository personRepository) {
+    public AddPersonHandler(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
 
