@@ -1,7 +1,7 @@
 package my.demo;
 
 import my.demo.repositories.PersonFileRepository;
-import my.demo.repositories.PersonInMemoryDBRepository;
+import my.demo.repositories.PersonDBRepository;
 import my.demo.repositories.PersonInMemoryRepository;
 import my.demo.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -31,6 +31,6 @@ public class AppConfig {
     @Bean
     @Qualifier("personRepository")
     public PersonRepository personInMemoryDBRepository(JdbcTemplate jdbcTemplate){
-        return new PersonInMemoryDBRepository(jdbcTemplate);
+        return new PersonDBRepository(jdbcTemplate);
     }
 }
