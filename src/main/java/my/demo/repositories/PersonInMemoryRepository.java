@@ -7,7 +7,9 @@ import java.util.List;
 
 public class PersonInMemoryRepository implements PersonRepository {
     private static final PersonInMemoryRepository INSTANCE = new PersonInMemoryRepository();
-    private PersonInMemoryRepository() {}
+    private PersonInMemoryRepository() {
+        System.out.println("In memory Repository used");
+    }
     private List<Person> persons = new ArrayList<>();
 
     public static PersonInMemoryRepository getInstance() {

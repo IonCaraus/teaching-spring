@@ -14,6 +14,7 @@ public class PersonFileRepository implements PersonRepository {
 
     private PersonFileRepository() {
         this.fileName = FILE_NAME;
+        System.out.println("File Repository used");
     }
 
     private PersonFileRepository(String fileName) {
