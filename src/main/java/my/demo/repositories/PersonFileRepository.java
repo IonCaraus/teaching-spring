@@ -6,15 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonFileRepository {
+    private static final PersonFileRepository INSTANCE = new PersonFileRepository();
     private static final String FILE_NAME = "persons.csv";
     String fileName;
 
-    public PersonFileRepository() {
+    private PersonFileRepository() {
         this.fileName = FILE_NAME;
     }
 
-    public PersonFileRepository(String fileName) {
-        this.fileName = fileName;
+    public static PersonFileRepository getInstance() {
+        return INSTANCE;
     }
 
     public Person getByEmail(String email) {

@@ -6,7 +6,7 @@ import my.demo.repositories.PersonInMemoryRepository;
 import java.util.Scanner;
 
 public class AddPersonHandler {
-    private final PersonInMemoryRepository personRepository = new PersonInMemoryRepository();
+    private final PersonInMemoryRepository personRepository = PersonInMemoryRepository.getInstance();
     public void addPerson(Scanner scanner) {
         System.out.print("Enter first name: ");
         String firstName = scanner.nextLine();

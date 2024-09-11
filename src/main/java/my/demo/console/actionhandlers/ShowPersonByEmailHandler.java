@@ -6,7 +6,7 @@ import my.demo.repositories.PersonInMemoryRepository;
 import java.util.Scanner;
 
 public class ShowPersonByEmailHandler {
-    private final PersonInMemoryRepository personRepository = new PersonInMemoryRepository();
+    private final PersonInMemoryRepository personRepository = PersonInMemoryRepository.getInstance();
 
     public void showPersonByEmail(Scanner scanner) {
         System.out.print("Enter email address: ");

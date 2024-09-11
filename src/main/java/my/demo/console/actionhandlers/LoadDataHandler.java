@@ -6,7 +6,7 @@ import my.demo.repositories.PersonInMemoryRepository;
 import java.util.UUID;
 
 public class LoadDataHandler {
-    private final PersonInMemoryRepository personRepository = new PersonInMemoryRepository();
+    private final PersonInMemoryRepository personRepository = PersonInMemoryRepository.getInstance();
 
     public void loadSomeData() {
         personRepository.add(new Person("John", "Doe", UUID.randomUUID().toString(), "john.doe@example.com"));

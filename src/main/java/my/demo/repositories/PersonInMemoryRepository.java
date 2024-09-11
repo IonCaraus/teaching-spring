@@ -6,7 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonInMemoryRepository {
+    private static final PersonInMemoryRepository INSTANCE = new PersonInMemoryRepository();
     private List<Person> persons = new ArrayList<>();
+
+    private PersonInMemoryRepository() {
+    }
+    public static PersonInMemoryRepository getInstance() {
+        return INSTANCE;
+    }
 
     public Person getByEmail( String email) {
         return getAll().stream()

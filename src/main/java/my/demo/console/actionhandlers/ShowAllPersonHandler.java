@@ -6,7 +6,7 @@ import my.demo.repositories.PersonInMemoryRepository;
 import java.util.List;
 
 public class ShowAllPersonHandler {
-    private final PersonInMemoryRepository personRepository = new PersonInMemoryRepository();
+    private final PersonInMemoryRepository personRepository = PersonInMemoryRepository.getInstance();
 
     public void showAllPersons() {
         List<Person> persons = personRepository.getAll();
