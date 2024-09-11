@@ -3,10 +3,7 @@ package my.demo;
 import my.demo.repositories.PersonRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -38,5 +35,25 @@ public class PersonController {
     public String addPerson(@ModelAttribute Person person) {
         personRepository.add(person);
         return "redirect:/persons";
+    }
+
+    @GetMapping("/{personNumber}")
+    public String viewPersonDetails(@PathVariable("personNumber") String personNumber, Model model) {
+        // In a real application, you'd retrieve the person from the database
+        Person person = personRepository.getByPersonNumber(personNumber);
+        if (person != null) {
+            model.addAttribute("person", person);
+            return "personDetails";
+        }
+        // If person not found, redirect to the list or show an error message
+        return "redirect:/persons";
+    }
+
+    @GetMapping("/search")
+    public String searchPersonsByEmail(@RequestParam("email") String email, Model model) {
+        List<Person> searchResults = personRepository.getByEmail(email);
+
+        model.addAttribute("persons", searchResults);
+        return "personList";
     }
 }

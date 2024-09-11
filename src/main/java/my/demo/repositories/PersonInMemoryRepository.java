@@ -12,10 +12,9 @@ public class PersonInMemoryRepository implements PersonRepository {
         System.out.println("In memory Repository");
     }
 
-    public Person getByEmail( String email) {
+    public List<Person> getByEmail(String email) {
         return getAll().stream()
-                .filter(person -> person.getEmailAddress().equals(email))
-                .findFirst().orElse(null);
+                .filter(person -> person.getEmailAddress().equals(email)).toList();
     }
 
     public void add(Person newPerson) {

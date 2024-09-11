@@ -6,7 +6,11 @@ import java.util.List;
 
 public interface PersonRepository {
 
-    Person getByEmail( String email);
+    List<Person> getByEmail( String email);
+
+    default Person getByPersonNumber(String personNumber) {
+        return null;
+    }
 
     void add(Person newPerson);
 

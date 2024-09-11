@@ -18,9 +18,26 @@
         <td th:text="${person.lastName}">Last Name</td>
         <td th:text="${person.personNumber}">Person Number</td>
         <td th:text="${person.emailAddress}">Email</td>
+        <td>
+            <a th:href="@{/persons/{personNumber}(personNumber=${person.personNumber})}">View Details</a>
+        </td>
     </tr>
 </table>
 <br/>
 <a href="/persons/add">Add New Person</a>
+<br/>
+<table border="1">
+    <tr>
+        <th>Search by person email</th>
+    </tr>
+    <tr >
+        <td>
+            <form action="#" th:action="@{/persons/search}" method="get">
+                <input type="text" id="email" name="email" placeholder="Search by email..." required>
+                <button type="submit">Search</button>
+            </form>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

@@ -22,12 +22,18 @@ public class PersonDBRepository implements PersonRepository {
         System.out.println("Real DB Repository");
     }
 
-    public Person getByEmail(String email) {
-        return jdbcTemplate.queryForObject(SQL_FIND_PERSON_BY_EMAIL, new Object[] { email }, new PersonMapper());
+    public List<Person> getByEmail(String email) {
+        return jdbcTemplate.query(SQL_FIND_PERSON_BY_EMAIL, new Object[] { email }, new PersonMapper());
+        //FIXME string concatenation creates an "opportunity" for SQL injection if user specifies in email the value "' or ''='"
+//        String sql = "select * from PERSONS where email_address ='" + email + "'";
+//        System.out.println(sql);
+//        return jdbcTemplate.query(sql, new PersonMapper());
     }
 
+    @Override
     public Person getByPersonNumber(String personNumber) {
-        return jdbcTemplate.queryForObject(SQL_FIND_PERSON_BY_PERSON_NUMBER, new Object[] { personNumber }, new PersonMapper());
+//        return jdbcTemplate.queryForObject(SQL_FIND_PERSON_BY_PERSON_NUMBER, new Object[] { personNumber }, new PersonMapper());
+        return jdbcTemplate.queryForObject("select * from PERSONS where person_number = "+ personNumber, new PersonMapper());
     }
 
     public void add(Person newPerson) {

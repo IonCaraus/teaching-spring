@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Person Details</title>
+</head>
+<body>
+<h2>Person Details</h2>
+<div>
+    <p><strong>First Name:</strong> <span th:text="${person.firstName}">First Name</span></p>
+    <p><strong>Last Name:</strong> <span th:text="${person.lastName}">Last Name</span></p>
+    <p><strong>Person Number:</strong> <span th:text="${person.personNumber}">Person Number</span></p>
+    <p><strong>Email:</strong> <span th:text="${person.emailAddress}">Email</span></p>
+</div>
+<a href="/persons">Back to list</a>
+</body>
+</html>

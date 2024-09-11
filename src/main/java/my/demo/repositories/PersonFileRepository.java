@@ -19,10 +19,9 @@ public class PersonFileRepository implements PersonRepository {
         this.fileName = fileName;
     }
 
-    public Person getByEmail(String email) {
+    public List<Person> getByEmail(String email) {
         return getAll().stream()
-                .filter(person -> person.getEmailAddress().equals(email))
-                .findFirst().orElse(null);
+                .filter(person -> person.getEmailAddress().equals(email)).toList();
     }
 
     public void add(Person newPerson) {
