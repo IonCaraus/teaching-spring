@@ -14,9 +14,12 @@ import java.util.Map;
 public class PersonController {
 
     private final PersonRepository personRepository;
+    private final MyProperties myProperties;
 
-    public PersonController(PersonRepository personRepository) {
+    public PersonController(PersonRepository personRepository, MyProperties myProperties) {
         this.personRepository = personRepository;
+        this.myProperties = myProperties;
+        System.out.println("Loaded properties: " + myProperties.getProp1());
     }
 
     @GetMapping
