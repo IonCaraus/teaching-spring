@@ -2,6 +2,7 @@ package my.demo.repositories;
 
 import my.demo.Person;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import java.util.List;
 
@@ -57,6 +58,10 @@ public class PersonDBRepository implements PersonRepository {
         return jdbcTemplate.update(SQL_DELETE_PERSON, person.getPersonNumber()) > 0;
     }
 
+    @PreAuthorize("hasAuthority('CREATE_PERSON')")
+//    @PreAuthorize("hasAnyAuthority('CREATE_PERSON','LIST_PERSONS')")
+//    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
     public List<Person> getAll() {
         return jdbcTemplate.query(SQL_GET_ALL, new PersonMapper());
     }
